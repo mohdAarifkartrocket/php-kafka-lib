@@ -59,4 +59,23 @@ final class KafkaConsumerMessage extends AbstractKafkaMessage implements KafkaCo
     {
         return $this->timestamp;
     }
+
+    /**
+     * @return string
+     */
+    public function getTopicName(): string
+    {
+        return $this->topicName;
+    }
+
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    public function getKey()
+    {
+        return $this->key;
+    }    
+
 }
