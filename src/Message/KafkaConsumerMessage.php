@@ -33,7 +33,7 @@ final class KafkaConsumerMessage extends AbstractKafkaMessage implements KafkaCo
         int $timestamp,
         $key,
         $body,
-        ?array $headers
+        $headers
     ) {
         $this->topicName = $topicName;
         $this->partition = $partition;

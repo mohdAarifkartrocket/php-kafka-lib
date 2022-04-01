@@ -64,7 +64,7 @@ class AvroDecoderTest extends TestCase
             ->method('decodeMessage')
             ->withConsecutive(
                 [$message->getKey(), $schemaDefinition],
-                [$message->getBody(), $schemaDefinition],
+                [$message->getBody(), $schemaDefinition]
             )
             ->willReturnOnConsecutiveCalls('decoded-key', ['test']);
 

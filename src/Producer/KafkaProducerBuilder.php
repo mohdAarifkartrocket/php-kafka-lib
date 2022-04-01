@@ -180,7 +180,7 @@ final class KafkaProducerBuilder implements KafkaProducerBuilderInterface
      * @param KafkaConfiguration $conf
      * @return void
      */
-    private function registerCallbacks(KafkaConfiguration $conf): void
+    private function registerCallbacks(KafkaConfiguration $conf)
     {
         $conf->setDrMsgCb($this->deliverReportCallback);
         $conf->setErrorCb($this->errorCallback);

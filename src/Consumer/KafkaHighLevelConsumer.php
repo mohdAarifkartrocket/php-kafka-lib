@@ -45,7 +45,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      * @throws KafkaConsumerSubscriptionException
      * @return void
      */
-    public function subscribe(array $topicSubscriptions = []): void
+    public function subscribe(array $topicSubscriptions = [])
     {
         $subscriptions = $this->getTopicSubscriptionNames($topicSubscriptions);
         $assignments = $this->getTopicAssignments($topicSubscriptions);
@@ -74,7 +74,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      * @throws KafkaConsumerSubscriptionException
      * @return void
      */
-    public function unsubscribe(): void
+    public function unsubscribe()
     {
         try {
             $this->consumer->unsubscribe();
@@ -92,7 +92,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      * @return void
      * @throws KafkaConsumerCommitException
      */
-    public function commit($messages): void
+    public function commit($messages)
     {
         $this->commitMessages($messages);
     }
@@ -104,7 +104,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      * @throws KafkaConsumerAssignmentException
      * @return void
      */
-    public function assign(array $topicPartitions): void
+    public function assign(array $topicPartitions)
     {
         try {
             $this->consumer->assign($topicPartitions);
@@ -120,7 +120,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      * @return void
      * @throws KafkaConsumerCommitException
      */
-    public function commitAsync($messages): void
+    public function commitAsync($messages)
     {
         $this->commitMessages($messages, true);
     }
@@ -173,7 +173,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      *
      * @return void;
      */
-    public function close(): void
+    public function close()
     {
         $this->consumer->close();
     }
@@ -183,7 +183,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      * @return RdKafkaMessage|null
      * @throws RdKafkaException
      */
-    protected function kafkaConsume(int $timeoutMs): ?RdKafkaMessage
+    protected function kafkaConsume(int $timeoutMs)
     {
         return $this->consumer->consume($timeoutMs);
     }
@@ -194,7 +194,7 @@ final class KafkaHighLevelConsumer extends AbstractKafkaConsumer implements Kafk
      * @return void
      * @throws KafkaConsumerCommitException
      */
-    private function commitMessages($messages, bool $asAsync = false): void
+    private function commitMessages($messages, bool $asAsync = false)
     {
         $messages = is_array($messages) ? $messages : [$messages];
 

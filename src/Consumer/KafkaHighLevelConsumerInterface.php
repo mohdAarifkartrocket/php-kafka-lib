@@ -15,7 +15,7 @@ interface KafkaHighLevelConsumerInterface extends KafkaConsumerInterface
      * @param string[]|RdKafkaTopicPartition[] $topicPartitions
      * @return void
      */
-    public function assign(array $topicPartitions): void;
+    public function assign(array $topicPartitions);
 
     /**
      * Asynchronous version of commit (non blocking)
@@ -23,7 +23,7 @@ interface KafkaHighLevelConsumerInterface extends KafkaConsumerInterface
      * @param KafkaConsumerMessageInterface|KafkaConsumerMessageInterface[] $messages
      * @return void
      */
-    public function commitAsync($messages): void;
+    public function commitAsync($messages);
 
     /**
      * Gets the current assignment for the consumer
@@ -54,5 +54,5 @@ interface KafkaHighLevelConsumerInterface extends KafkaConsumerInterface
      *
      * @return void;
      */
-    public function close(): void;
+    public function close();
 }

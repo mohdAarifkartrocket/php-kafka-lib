@@ -55,7 +55,7 @@ final class KafkaLowLevelConsumer extends AbstractKafkaConsumer implements Kafka
      * @return void
      * @throws KafkaConsumerSubscriptionException
      */
-    public function subscribe(): void
+    public function subscribe()
     {
         if (true === $this->isSubscribed()) {
             return;
@@ -98,7 +98,7 @@ final class KafkaLowLevelConsumer extends AbstractKafkaConsumer implements Kafka
      * @return void
      * @throws KafkaConsumerCommitException
      */
-    public function commit($messages): void
+    public function commit($messages)
     {
         $messages = is_array($messages) ? $messages : [$messages];
 
@@ -121,7 +121,7 @@ final class KafkaLowLevelConsumer extends AbstractKafkaConsumer implements Kafka
      *
      * @return void
      */
-    public function unsubscribe(): void
+    public function unsubscribe()
     {
         if (false === $this->isSubscribed()) {
             return;
@@ -143,7 +143,7 @@ final class KafkaLowLevelConsumer extends AbstractKafkaConsumer implements Kafka
      * @param integer $timeoutMs
      * @return null|RdKafkaMessage
      */
-    protected function kafkaConsume(int $timeoutMs): ?RdKafkaMessage
+    protected function kafkaConsume(int $timeoutMs)
     {
         return $this->queue->consume($timeoutMs);
     }

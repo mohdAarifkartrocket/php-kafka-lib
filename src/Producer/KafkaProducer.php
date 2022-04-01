@@ -68,7 +68,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @param integer $pollTimeoutMs
      * @return void
      */
-    public function produce(KafkaProducerMessageInterface $message, bool $autoPoll = true, int $pollTimeoutMs = 0): void
+    public function produce(KafkaProducerMessageInterface $message, bool $autoPoll = true, int $pollTimeoutMs = 0)
     {
         $message = $this->encoder->encode($message);
 
@@ -95,7 +95,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @param KafkaProducerMessageInterface $message
      * @return void
      */
-    public function syncProduce(KafkaProducerMessageInterface $message): void
+    public function syncProduce(KafkaProducerMessageInterface $message)
     {
         $this->produce($message, true, -1);
     }
@@ -106,7 +106,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @param integer $timeoutMs
      * @return void
      */
-    public function poll(int $timeoutMs = 0): void
+    public function poll(int $timeoutMs = 0)
     {
         $this->producer->poll($timeoutMs);
     }
@@ -118,7 +118,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @param integer $queueSize
      * @return void
      */
-    public function pollUntilQueueSizeReached(int $timeoutMs = 0, int $queueSize = 0): void
+    public function pollUntilQueueSizeReached(int $timeoutMs = 0, int $queueSize = 0)
     {
         while ($this->producer->getOutQLen() > $queueSize) {
             $this->producer->poll($timeoutMs);
@@ -178,7 +178,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @throws KafkaProducerTransactionFatalException
      * @throws KafkaProducerTransactionRetryException
      */
-    public function beginTransaction(int $timeoutMs): void
+    public function beginTransaction(int $timeoutMs)
     {
         try {
             if (false === $this->transactionInitialized) {
@@ -202,7 +202,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @throws KafkaProducerTransactionFatalException
      * @throws KafkaProducerTransactionRetryException
      */
-    public function commitTransaction(int $timeoutMs): void
+    public function commitTransaction(int $timeoutMs)
     {
         try {
             $this->producer->commitTransaction($timeoutMs);
@@ -221,7 +221,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @throws KafkaProducerTransactionFatalException
      * @throws KafkaProducerTransactionRetryException
      */
-    public function abortTransaction(int $timeoutMs): void
+    public function abortTransaction(int $timeoutMs)
     {
         try {
             $this->producer->abortTransaction($timeoutMs);
@@ -250,7 +250,7 @@ final class KafkaProducer implements KafkaProducerInterface
      * @throws KafkaProducerTransactionFatalException
      * @throws KafkaProducerTransactionRetryException
      */
-    private function handleTransactionError(RdKafkaErrorException $e): void
+    private function handleTransactionError(RdKafkaErrorException $e)
     {
         if (true === $e->isRetriable()) {
             throw new KafkaProducerTransactionRetryException(

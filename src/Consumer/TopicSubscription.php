@@ -48,7 +48,7 @@ final class TopicSubscription implements TopicSubscriptionInterface
      * @param int[] $partitions
      * @return void
      */
-    public function setPartitions(array $partitions): void
+    public function setPartitions(array $partitions)
     {
         $this->partitions = $partitions;
     }

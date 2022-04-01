@@ -6,7 +6,7 @@ namespace Jobcloud\Kafka\Message;
 
 interface KafkaAvroSchemaInterface
 {
-    public const LATEST_VERSION = -1;
+    const LATEST_VERSION = -1;
 
     /**
      * @return string
@@ -22,10 +22,10 @@ interface KafkaAvroSchemaInterface
      * @param \AvroSchema $definition
      * @return void
      */
-    public function setDefinition(\AvroSchema $definition): void;
+    public function setDefinition(\AvroSchema $definition);
 
     /**
      * @return \AvroSchema|null
      */
-    public function getDefinition(): ?\AvroSchema;
+    public function getDefinition();
 }

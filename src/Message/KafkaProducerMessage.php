@@ -30,7 +30,7 @@ final class KafkaProducerMessage extends AbstractKafkaMessage implements KafkaPr
      * @param string|null $key
      * @return KafkaProducerMessageInterface
      */
-    public function withKey(?string $key): KafkaProducerMessageInterface
+    public function withKey($key): KafkaProducerMessageInterface
     {
         $new = clone $this;
 
@@ -56,7 +56,7 @@ final class KafkaProducerMessage extends AbstractKafkaMessage implements KafkaPr
      * @param string[]|null $headers
      * @return KafkaProducerMessageInterface
      */
-    public function withHeaders(?array $headers): KafkaProducerMessageInterface
+    public function withHeaders($headers): KafkaProducerMessageInterface
     {
         $new = clone $this;
 

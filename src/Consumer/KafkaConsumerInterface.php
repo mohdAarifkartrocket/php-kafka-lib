@@ -21,14 +21,14 @@ interface KafkaConsumerInterface
      *
      * @return void
      */
-    public function subscribe(): void;
+    public function subscribe();
 
     /**
      * Unsubscribes from the current subscription / assignment
      *
      * @return void
      */
-    public function unsubscribe(): void;
+    public function unsubscribe();
 
     /**
      * Returns true if the consumer has subscribed to its topics, otherwise false
@@ -62,7 +62,7 @@ interface KafkaConsumerInterface
      * @param KafkaConsumerMessageInterface|KafkaConsumerMessageInterface[] $messages
      * @return void
      */
-    public function commit($messages): void;
+    public function commit($messages);
 
     /**
      * Returns the configuration settings for this consumer instance as array

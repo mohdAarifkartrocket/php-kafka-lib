@@ -10,24 +10,24 @@ use Jobcloud\Kafka\Message\KafkaAvroSchemaInterface;
 interface AvroSchemaRegistryInterface
 {
     /** @var string */
-    public const BODY_IDX = 'body';
+    const BODY_IDX = 'body';
 
     /** @var string */
-    public const KEY_IDX = 'key';
+    const KEY_IDX = 'key';
 
     /**
      * @param string                   $topicName
      * @param KafkaAvroSchemaInterface $avroSchema
      * @return void
      */
-    public function addBodySchemaMappingForTopic(string $topicName, KafkaAvroSchemaInterface $avroSchema): void;
+    public function addBodySchemaMappingForTopic(string $topicName, KafkaAvroSchemaInterface $avroSchema);
 
     /**
      * @param string                   $topicName
      * @param KafkaAvroSchemaInterface $avroSchema
      * @return void
      */
-    public function addKeySchemaMappingForTopic(string $topicName, KafkaAvroSchemaInterface $avroSchema): void;
+    public function addKeySchemaMappingForTopic(string $topicName, KafkaAvroSchemaInterface $avroSchema);
 
     /**
      * @return array<string, KafkaAvroSchemaInterface[]>

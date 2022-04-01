@@ -25,7 +25,7 @@ interface KafkaMessageInterface
     /**
      * @return string[]|null
      */
-    public function getHeaders(): ?array;
+    public function getHeaders();
 
     /**
      * Returns the message body or null if the message doesn't have a body

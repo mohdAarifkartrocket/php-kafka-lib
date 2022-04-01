@@ -8,7 +8,7 @@ use Jobcloud\Kafka\Message\KafkaConsumerMessageInterface;
 
 class KafkaConsumerConsumeException extends \Exception
 {
-    public const NOT_SUBSCRIBED_EXCEPTION_MESSAGE = 'This consumer is currently not subscribed';
+    const NOT_SUBSCRIBED_EXCEPTION_MESSAGE = 'This consumer is currently not subscribed';
 
     /**
      * @var KafkaConsumerMessageInterface|null
@@ -35,7 +35,7 @@ class KafkaConsumerConsumeException extends \Exception
     /**
      * @return null|KafkaConsumerMessageInterface
      */
-    public function getKafkaMessage(): ?KafkaConsumerMessageInterface
+    public function getKafkaMessage()
     {
         return $this->kafkaMessage;
     }

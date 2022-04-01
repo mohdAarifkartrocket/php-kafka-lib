@@ -66,7 +66,7 @@ abstract class AbstractKafkaMessage implements KafkaMessageInterface
     /**
      * @return string[]|null
      */
-    public function getHeaders(): ?array
+    public function getHeaders()
     {
         return $this->headers;
     }

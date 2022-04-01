@@ -30,7 +30,7 @@ final class KafkaAvroSchema implements KafkaAvroSchemaInterface
     public function __construct(
         string $schemaName,
         int $version = KafkaAvroSchemaInterface::LATEST_VERSION,
-        ?\AvroSchema $definition = null
+        $definition = null
     ) {
         $this->name = $schemaName;
         $this->version = $version;
@@ -57,7 +57,7 @@ final class KafkaAvroSchema implements KafkaAvroSchemaInterface
      * @param \AvroSchema $definition
      * @return void
      */
-    public function setDefinition(\AvroSchema $definition): void
+    public function setDefinition(\AvroSchema $definition)
     {
         $this->definition = $definition;
     }
@@ -65,7 +65,7 @@ final class KafkaAvroSchema implements KafkaAvroSchemaInterface
     /**
      * @return \AvroSchema|null
      */
-    public function getDefinition(): ?\AvroSchema
+    public function getDefinition()
     {
         return $this->definition;
     }

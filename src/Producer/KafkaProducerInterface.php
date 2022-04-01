@@ -20,7 +20,7 @@ interface KafkaProducerInterface
         KafkaProducerMessageInterface $message,
         bool $autoPoll = true,
         int $pollTimeoutMs = 0
-    ): void;
+    );
 
     /**
      * Produces a message to the topic and partition defined in the message
@@ -30,7 +30,7 @@ interface KafkaProducerInterface
      * @param KafkaProducerMessageInterface $message
      * @return void
      */
-    public function syncProduce(KafkaProducerMessageInterface $message): void;
+    public function syncProduce(KafkaProducerMessageInterface $message);
 
     /**
      * Poll for producer event, pass 0 for non-blocking, pass -1 to block until an event arrives
@@ -38,7 +38,7 @@ interface KafkaProducerInterface
      * @param integer $timeoutMs
      * @return void
      */
-    public function poll(int $timeoutMs = 0): void;
+    public function poll(int $timeoutMs = 0);
 
     /**
      * Poll for producer events until the number of $queueSize events remain
@@ -47,7 +47,7 @@ interface KafkaProducerInterface
      * @param integer $queueSize
      * @return void
      */
-    public function pollUntilQueueSizeReached(int $timeoutMs = 0, int $queueSize = 0): void;
+    public function pollUntilQueueSizeReached(int $timeoutMs = 0, int $queueSize = 0);
 
     /**
      * Purge producer messages that are in flight
@@ -84,7 +84,7 @@ interface KafkaProducerInterface
      * @throws KafkaProducerTransactionFatalException
      * @throws KafkaProducerTransactionRetryException
      */
-    public function beginTransaction(int $timeoutMs): void;
+    public function beginTransaction(int $timeoutMs);
 
     /**
      * Commit the current producer transaction
@@ -96,7 +96,7 @@ interface KafkaProducerInterface
      * @throws KafkaProducerTransactionFatalException
      * @throws KafkaProducerTransactionRetryException
      */
-    public function commitTransaction(int $timeoutMs): void;
+    public function commitTransaction(int $timeoutMs);
 
     /**
      * Abort the current producer transaction
@@ -108,5 +108,5 @@ interface KafkaProducerInterface
      * @throws KafkaProducerTransactionFatalException
      * @throws KafkaProducerTransactionRetryException
      */
-    public function abortTransaction(int $timeoutMs): void;
+    public function abortTransaction(int $timeoutMs);
 }
